@@ -31,7 +31,7 @@
         "doctrine/annotations": "^1.2",
         "doctrine/collections": "^1.3",
         "doctrine/common": "^2.6",
-        "graphaware/neo4j-php-client": "v5.1"
+        "graphaware/neo4j-php-client": "dev-commit-request-fix"
     },
     "autoload": {
         "psr-4": {
