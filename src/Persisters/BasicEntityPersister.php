@@ -153,7 +153,11 @@ class BasicEntityPersister
         foreach ($criteria as $key => $criterion) {
             $key = (string) $key;
             $clause = $filter_cursor === 0 ? 'WHERE' : 'AND';
-            $cypher .= sprintf('%s %s.%s = {%s} ', $clause, $identifier, $key, $key);
+            $operator = '=';
+            if (is_array($criterion)) {
+                $operator = 'IN';
+            }
+            $cypher .= sprintf('%s %s.%s %s {%s} ', $clause, $identifier, $key, $operator, $key);
             $params[$key] = $criterion;
             ++$filter_cursor;
         }
